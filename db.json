@@ -1,0 +1,29 @@
+{
+    "user": [
+
+    ],
+
+    "menu": [
+        {
+            "name":"nasi ayam bakar",
+            "category":"heavy meal",
+            "img":"https://cf.shopee.co.id/file/f44aa23913fa362f5f077578c706c372",
+            "price":25000,
+            "stock":20
+        },
+        {
+            "name":"nasi ikan bakar",
+            "category":"heavy meal",
+            "img":"https://assets.tokko.io/4e74e7c2-fb90-4e62-b015-777c83678972/products/images/c206822f-b410-40e1-aa96-3cc694fa49c2",
+            "price":25000,
+            "stock":20
+        },
+        {
+            "name":"nasi tutug oncom",
+            "category":"heavy meal",
+            "img":"https://images.tokopedia.net/blog-tokopedia-com/uploads/2018/11/Blog_Resep-Nasi-Tutug-Oncom-yang-Gurih-dan-Bikin-Nagih.jpg",
+            "price":25000,
+            "stock":20
+        }
+    ]
+}
