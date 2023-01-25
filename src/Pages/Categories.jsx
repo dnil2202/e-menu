@@ -3,12 +3,17 @@ import { IoMdNotificationsOutline} from 'react-icons/io';
 import { AiOutlineArrowLeft} from 'react-icons/ai';
 import FoodMenu from '../Component/FoodMenu';
 import { useNavigate } from 'react-router-dom';
+import { cartAtom, userAtom } from '../store';
+import { useAtom } from 'jotai';
 
 
 
 const Categories = () => {
     const navigate = useNavigate()
     const search = window.location.pathname.split('/')[2]
+    const [dataUser]=useAtom(userAtom)
+    const[dataCart]=useAtom(cartAtom)
+    console.log(dataCart.length)
 
 
     let dataCategories = [
@@ -47,7 +52,13 @@ const Categories = () => {
             <div className='flex justify-between'>
                 <AiOutlineArrowLeft onClick={()=>navigate('/menu')} size={25} className='mt-1'/>
                 <div>All Categories</div>
-                <IoMdNotificationsOutline size={25} className='mt-1'/>
+                <div className='relative'>
+                    <IoMdNotificationsOutline size={25} className='mt-1' onClick={()=>navigate('/cart')}/>
+                    {
+                        dataCart.length>0 &&
+                    <p className='text-xs bg-red-600 rounded-full text-center w-4 absolute top-1 left-3'>{dataCart.length}</p>
+                    }
+                </div>
             </div>
             <div className='flex gap-2 overflow-x-auto mt-7'>
                 {

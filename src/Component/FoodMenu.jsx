@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import { API_URL } from '../helper'
-import axios from 'axios'
+import { menuAtom, cartAtom } from '../store'
+import { useAtom } from 'jotai'
 
 const FoodMenu = () => {
-    const [dataMenu, setDataMenu] = useState([])
 
+  const [dataMenu]=useAtom(menuAtom)
+  const [getCart, setGetCart]=useAtom(cartAtom)
 
-    useEffect(()=>{
-      axios.get(API_URL+'/menu')
-      .then((res)=>{
-        let food = res.data.filter(data=> data.category === 'heavy meal')
-        setDataMenu(food)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  
-    },[])
+  const addToCart = (id) => {
+    let selectedFood = dataMenu.filter(v=>v.id === id)
+    let newData = selectedFood.map((v,i)=>{
+        return {...v,qty:1}
+    })
+    let temp = [...getCart]
+    let idx= getCart.findIndex((v)=>v.id === id)
+    if(!temp[idx]){
+        setGetCart([...getCart,...newData])
+    }else{
+        let newData = {
+            ...temp[idx]
+        }
+        newData.qty+=1
+        temp.splice(idx,1,newData)
+        setGetCart(temp)
+    }
+    
+
+        
+  }
 
     const prinDataFood = () =>{
         return dataMenu.map((v,i)=>{
@@ -30,10 +41,8 @@ const FoodMenu = () => {
                         <p className='text-slate-400 leading-1'>Rp. {v.price.toLocaleString('id')}</p>
                     </div>
                     <div className='flex justify-center mt-3'>
-                        <button className='w-[90%] rounded-lg bg-green-300 text-white py-1'>Keranjang</button>
-
+                        <button className='w-[90%] rounded-lg bg-green-300 text-white py-1' onClick={()=>addToCart(v.id)}>Keranjang</button>
                     </div>
-
                 </div>
             )
         })

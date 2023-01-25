@@ -1,29 +1,156 @@
 {
-    "user": [
-
-    ],
-
-    "menu": [
-        {
-            "name":"nasi ayam bakar",
-            "category":"heavy meal",
-            "img":"https://cf.shopee.co.id/file/f44aa23913fa362f5f077578c706c372",
-            "price":25000,
-            "stock":20
-        },
-        {
-            "name":"nasi ikan bakar",
-            "category":"heavy meal",
-            "img":"https://assets.tokko.io/4e74e7c2-fb90-4e62-b015-777c83678972/products/images/c206822f-b410-40e1-aa96-3cc694fa49c2",
-            "price":25000,
-            "stock":20
-        },
-        {
-            "name":"nasi tutug oncom",
-            "category":"heavy meal",
-            "img":"https://images.tokopedia.net/blog-tokopedia-com/uploads/2018/11/Blog_Resep-Nasi-Tutug-Oncom-yang-Gurih-dan-Bikin-Nagih.jpg",
-            "price":25000,
-            "stock":20
-        }
-    ]
+  "user": [
+    {
+      "email": "daniel@mail.com",
+      "table": "12",
+      "cart": [],
+      "id": 1
+    },
+    {
+      "email": "daniel@mail.com",
+      "table": "13",
+      "cart": [],
+      "id": 2
+    },
+    {
+      "email": "elwin@mail.com",
+      "table": "13",
+      "cart": [],
+      "id": 3
+    },
+    {
+      "email": "dani@mail.com",
+      "table": "15",
+      "cart": [],
+      "id": 4
+    },
+    {
+      "email": "manu@mail.com",
+      "table": "12",
+      "cart": [],
+      "id": 5
+    },
+    {
+      "email": "dads@mail.com",
+      "table": "1",
+      "cart": [],
+      "id": 6
+    },
+    {
+      "email": "tes@mail.com",
+      "table": "1",
+      "cart": [],
+      "id": 7
+    },
+    {
+      "email": "res@mail.com",
+      "table": "1",
+      "cart": [],
+      "id": 8
+    },
+    {
+      "email": "lolo@mail.com",
+      "table": "1",
+      "cart": [],
+      "id": 9
+    },
+    {
+      "email": "dsad@mail.com",
+      "table": "12",
+      "cart": [],
+      "id": 10
+    },
+    {
+      "email": "dsad",
+      "table": "22",
+      "cart": [],
+      "id": 11
+    },
+    {
+      "email": "feri@mail.com",
+      "table": "9",
+      "cart": [],
+      "id": 12
+    },
+    {
+      "email": "dsad",
+      "table": "1",
+      "cart": [],
+      "id": 13
+    },
+    {
+      "email": "ddd@mail.com",
+      "table": "2",
+      "cart": [],
+      "id": 14
+    },
+    {
+      "email": "ddani",
+      "table": "1",
+      "cart": [],
+      "id": 15
+    },
+    {
+      "email": "dsada",
+      "table": "26",
+      "cart": [],
+      "id": 16
+    },
+    {
+      "email": "dsad",
+      "table": "1",
+      "cart": [],
+      "id": 17
+    },
+    {
+      "email": "dasn",
+      "table": "2",
+      "cart": [],
+      "id": 18
+    },
+    {
+      "email": "dsadsa",
+      "table": "2",
+      "cart": [],
+      "id": 19
+    },
+    {
+      "email": "petrus@mail.com",
+      "table": "8",
+      "cart": [],
+      "id": 20
+    },
+    {
+      "email": "fikri",
+      "table": "1",
+      "cart": [],
+      "id": 21
+    }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "name": "nasi ayam bakar",
+      "category": "heavy meal",
+      "img": "https://cf.shopee.co.id/file/f44aa23913fa362f5f077578c706c372",
+      "price": 25000,
+      "stock": 20
+    },
+    {
+      "id": 2,
+      "name": "nasi ikan bakar",
+      "category": "heavy meal",
+      "img": "https://assets.tokko.io/4e74e7c2-fb90-4e62-b015-777c83678972/products/images/c206822f-b410-40e1-aa96-3cc694fa49c2",
+      "price": 25000,
+      "stock": 20
+    },
+    {
+      "id": 3,
+      "name": "nasi tutug oncom",
+      "category": "heavy meal",
+      "img": "https://images.tokopedia.net/blog-tokopedia-com/uploads/2018/11/Blog_Resep-Nasi-Tutug-Oncom-yang-Gurih-dan-Bikin-Nagih.jpg",
+      "price": 25000,
+      "stock": 20
+    }
+  ]
 }
