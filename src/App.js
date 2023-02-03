@@ -8,6 +8,7 @@ import axios from 'axios';
 import { API_URL } from './helper';
 import { useEffect } from 'react';
 import Cart from './Pages/Cart';
+import Transaction from './Pages/Transaction';
 
 function App() {
   
@@ -19,7 +20,6 @@ function App() {
   useEffect(()=>{
     axios.get(API_URL+'/menu')
     .then((res)=>{
-      console.log(res)
       let food = res.data.filter(data=> data.category === 'heavy meal')
       setDataMenu(food)
     })
@@ -45,6 +45,7 @@ function App() {
         <Route path='/menu' element={<MenuPages />} />
         <Route path='/categories/:name' element={<Categories />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/transaction' element={<Transaction />} />
       </Routes>
     </div>
   );

@@ -18,7 +18,7 @@ const HomePage = () => {
         axios.post(API_URL+'/user',{
             email:inputEmail,
             table:inputTable,
-            cart: []
+            transaction: []
         }).then((res)=>{
             setUserLogin(res.data)
             navigate('/menu')

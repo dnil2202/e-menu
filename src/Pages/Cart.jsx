@@ -2,24 +2,60 @@ import { useAtom } from 'jotai'
 import React from 'react'
 import { AiOutlineArrowLeft, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { cartAtom, incAtom } from '../store'
+import { cartAtom, userAtom } from '../store'
+import axios from 'axios'
+import { API_URL } from '../helper'
 
 const Cart = () => {
     const navigate = useNavigate()
     const [dataCart, setDataCart]=useAtom(cartAtom)
-    const [count, incerment]=useAtom(incAtom)
-    console.log(dataCart)
+    const [dataUser] = useAtom(userAtom)
+    console.log(dataUser)
+
 
     const onInc = (id) => {
         let temp = dataCart
-        let idx = dataCart.findIndex(v=>v.id === id)
+        let idx = dataCart.findIndex(v=>v.id == id)
         let selectedData = {
             ...temp[idx]
         } 
         selectedData.qty+=1 
         temp.splice(idx,1,selectedData)
         console.log(temp)
-        // setDataCart(temp)
+        setDataCart(()=>[
+            ...temp
+
+        ])
+    }
+
+    const onDec = (id)=>{
+        let temp = dataCart
+        let idx = dataCart.findIndex(v=>v.id == id)
+        let selectedData = {
+            ...temp[idx]
+        } 
+        if(selectedData.qty>1){
+            selectedData.qty-=1 
+        }
+        temp.splice(idx,1,selectedData)
+        console.log(temp)
+        setDataCart(()=>[
+            ...temp
+
+        ])
+    }
+
+    const onCheckOut = () =>{
+        let transaction = {dataCart,status:'unpaid'}
+        axios.patch(API_URL+`/user/${dataUser.id}`,{
+            transaction
+        })
+        .then((res)=>{
+            setDataCart(()=>[])
+            navigate('/transaction')
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
     
 
@@ -34,9 +70,9 @@ const Cart = () => {
                         <div className='mt-5'>
                             <p className='text-sm'>{v.name}</p>
                             <div className='flex justify-between rounded-lg bg-slate-300 mt-3 px-2 w-24 h-7'>
-                                <AiOutlineMinus className='my-[6px]'/>
+                                <AiOutlineMinus className='my-[6px]' onClick={()=>onDec(v.id)}/>
                                 <div>{v.qty}</div>
-                                <AiOutlinePlus className='my-[6px]' onClick={incerment}/>
+                                <AiOutlinePlus className='my-[6px]' onClick={()=>onInc(v.id)}/>
                             </div>
                         </div>
                         <div className='mt-5 text-end'>
@@ -78,7 +114,7 @@ const Cart = () => {
                     <p>RP. {totalPay().toLocaleString('id')}</p>
                 </div>
                 <div className='mt-2'>
-                    <button className='bg-green-300 px-10 py-2 rounded-lg text-white'>Bayar</button>
+                    <button className='bg-green-300 px-10 py-2 rounded-lg text-white' onClick={onCheckOut}>Bayar</button>
                 </div>
             </div>
 
