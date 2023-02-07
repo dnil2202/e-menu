@@ -1,61 +1,32 @@
 {
   "user": [
     {
-      "email": "dnilsibarani@gmail.com",
-      "table": "19",
-      "transaction": {
-        "dataCart": [
-          {
-            "id": 2,
-            "name": "nasi ikan bakar",
-            "category": "heavy meal",
-            "img": "https://assets.tokko.io/4e74e7c2-fb90-4e62-b015-777c83678972/products/images/c206822f-b410-40e1-aa96-3cc694fa49c2",
-            "price": 25000,
-            "stock": 20,
-            "qty": 2
-          }
-        ],
-        "status": "unpaid"
-      },
-      "id": 1
-    },
-    {
-      "email": "pet",
+      "email": "dnil@mail.com",
       "table": "2",
-      "transaction": {
-        "dataCart": [
-          {
-            "id": 1,
-            "name": "nasi ayam bakar",
-            "category": "heavy meal",
-            "img": "https://cf.shopee.co.id/file/f44aa23913fa362f5f077578c706c372",
-            "price": 25000,
-            "stock": 20,
-            "qty": 2
-          }
-        ],
-        "status": "unpaid"
-      },
+      "role": "user",
+      "transaction": [],
       "id": 2
     },
     {
-      "email": "das",
-      "table": "1",
-      "transaction": {
-        "dataCart": [
-          {
-            "id": 1,
-            "name": "nasi ayam bakar",
-            "category": "heavy meal",
-            "img": "https://cf.shopee.co.id/file/f44aa23913fa362f5f077578c706c372",
-            "price": 25000,
-            "stock": 20,
-            "qty": 2
-          }
-        ],
-        "status": "unpaid"
-      },
+      "email": "admin@mail.com",
+      "table": "",
+      "role": "admin",
+      "transaction": [],
+      "id": 1
+    },
+    {
+      "email": "admin@main.com",
+      "table": "",
+      "role": "user",
+      "transaction": [],
       "id": 3
+    },
+    {
+      "email": "dnilsibarani@gmail.com",
+      "table": "2",
+      "role": "user",
+      "transaction": [],
+      "id": 4
     }
   ],
   "menu": [

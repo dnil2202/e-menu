@@ -9,6 +9,7 @@ import { API_URL } from './helper';
 import { useEffect } from 'react';
 import Cart from './Pages/Cart';
 import Transaction from './Pages/Transaction';
+import Dashboard from './Pages/Admin/Dashboard';
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/' element={<HomePage />} />
         <Route path='/menu' element={<MenuPages />} />
         <Route path='/categories/:name' element={<Categories />} />

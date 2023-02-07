@@ -15,14 +15,38 @@ const HomePage = () => {
 
 
     const onLogin = () => {
-        axios.post(API_URL+'/user',{
-            email:inputEmail,
-            table:inputTable,
-            transaction: []
-        }).then((res)=>{
-            setUserLogin(res.data)
-            navigate('/menu')
-            localStorage.setItem('menu',res.data.id)
+        axios.get(API_URL+`/user?email=${inputEmail}`)
+        .then((res)=>{
+            if(res.data.length > 0){
+                axios.patch(API_URL+`/user/${res.data[0].id}`,{
+                    table:inputTable
+                })
+                .then((res)=>{
+                    setUserLogin(res.data)
+                    if(res.data.role === 'user'){
+                        navigate('/menu')
+                    }else{
+                        navigate('/dashboard')
+                    }
+                    localStorage.setItem('menu',res.data.id)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            }else{
+                axios.post(API_URL+'/user',{
+                    email:inputEmail,
+                    table:inputTable,
+                    role:"user",
+                    transaction: []
+                }).then((res)=>{
+                    setUserLogin(res.data)
+                    navigate('/menu')
+                    localStorage.setItem('menu',res.data.id)
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            }
         }).catch((err)=>{
             console.log(err)
         })
